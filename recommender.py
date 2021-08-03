@@ -34,8 +34,15 @@ def get_match(input, datapoint):
     dist = dist * 100
     return 100 - dist
 
-def sort(arr):
-    return 0
+
+def bubble_sort(arr):
+    for i in arr:
+        for j in range(len(arr) - 1):
+            if(arr[j][1] < arr[j+1][1]):
+                tmp = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = tmp
+    return arr
 
 
 def recommend(input):
@@ -43,14 +50,15 @@ def recommend(input):
     for row in range(0, len(output)-2):
         output[row][0] = get_row('A')[row+1]
         output[row][1] = get_match(input, get_row(row+2))
-
+    output = bubble_sort(output)
     return output
 
 
-print(max_dist)
-print(get_row('1'))
-print(get_match([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      get_row('2')))
-print(get_dist([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      get_row('2')))
+# print(max_dist)
+# print(get_row('1'))
+# print(get_match([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+#      get_row('2')))
+# print(get_dist([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+#      get_row('2')))
 print(recommend([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]))
+print(recommend([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]))
