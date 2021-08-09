@@ -52,13 +52,3 @@ def recommend(input):
         output[row][1] = get_match(input, get_row(row+2))
     output = bubble_sort(output)
     return output
-
-
-# print(max_dist)
-# print(get_row('1'))
-# print(get_match([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-#      get_row('2')))
-# print(get_dist([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-#      get_row('2')))
-print(recommend([7, 2, 1, 3, 6, 2, 2, 4, 3, 5]))
-#print(recommend([10, 10, 10, 10, 10, 10, 10, 10, 10, 10]))

@@ -1,6 +1,6 @@
 from recommender import recommend
 import numpy as np
-from flask import Flask, flash, request, redirect,  render_template
+from flask import Flask, request, render_template
 from flask import jsonify
 from flask_cors import CORS
 
@@ -17,11 +17,9 @@ def upload_file():
         arr = [0 for x in range(10)]
         for i in range(len(array)):
             arr[i] = array[i][1]
-        print(arr)
         x = np.array(arr)
         y = x.astype(np.float)
         outputarr = recommend(y)
-        print(outputarr)
         return jsonify(outputarr)
     return render_template('index.html')
 
