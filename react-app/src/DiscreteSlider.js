@@ -9,6 +9,10 @@ const useStyles = makeStyles({
   },
 });
 
+function changed(value) {
+
+}
+
 function valuetext(value) {
   return `${value}`;
 }
@@ -22,6 +26,7 @@ export default function DiscreteSlider(props) {
         {props.name}
       </Typography>
       <Slider
+        onChange={changed}
         defaultValue={0.5}
         getAriaValueText={valuetext}
         aria-labelledby="discrete-slider-small-steps"

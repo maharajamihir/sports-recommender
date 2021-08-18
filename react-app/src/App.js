@@ -1,20 +1,33 @@
 import { Button } from '@material-ui/core';
-import React from 'react';
+import React, { Component } from 'react';
 import DiscreteSlider from './DiscreteSlider';
 
-export default function App() {
-  var data = "Data";
+class App extends React.Component {
 
-  const sendData = () => {
-    data = "pressed";
-    return 0;
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: "Unclicked",
+      stats: [],
+      recommendation: []
+    }
+  }
 
+ sendData = () => {
+    this.setState({
+      data: "Clicked!!"
+    });
+  }
+
+render(){
   return (
     <div>
       <DiscreteSlider name="Strength" />
-      <Button onClick={sendData}>Submit</Button>
-      <h1>{data}</h1>
+      <Button onClick={this.sendData}>Submit</Button>
+      <h1>{this.state.data}</h1>
     </div>
   );
 }
+}
+
+export default App;
